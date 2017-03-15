@@ -10,15 +10,20 @@ public class castle : MonoBehaviour {
     void Start () {
         
     }
+
+    //when hovering over the castle
     void OnMouseEnter()
     {
+        //colour all the objects that build the castle
         foreach (Renderer r in GetComponentsInChildren<Renderer>())
         {
+            //set colour as the defined one
             r.material.color = hoverColor;
         }
         
     }
 
+    //reset colour when mouse leaves
     void OnMouseExit()
     {
         foreach (Renderer r in GetComponentsInChildren<Renderer>())

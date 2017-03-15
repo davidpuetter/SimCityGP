@@ -1,10 +1,16 @@
 fileFormatVersion: 2
 guid: 5256d5777fbd1184787f4861cd48583c
-timeCreated: 1486319511
+timeCreated: 1489593516
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - building: {instanceID: 0}
+  - createEffect: {fileID: 130878, guid: 500bb3a68b454ca4cb63df032f94e47a, type: 2}
+  - tavernToBuild: {fileID: 164454, guid: 9cf6e493c0eeb8844a269985c4e51ced, type: 2}
+  - houseToBuild: {fileID: 158518, guid: e0d616391d73b4249b160a403b9f8aa1, type: 2}
+  - shopToBuild: {fileID: 131748, guid: 3508e1f3ed473dd47a7caba4b0836aad, type: 2}
+  - armoryToBuild: {fileID: 145206, guid: 5a532219fb2594341bbb1bdce41dd5e8, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
