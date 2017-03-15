@@ -8,6 +8,7 @@ public class buildManager : MonoBehaviour
     {
         if (instance = null)
         {
+        //some shit
             return;
         }
         instance = this;
