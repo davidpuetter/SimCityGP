@@ -9,6 +9,7 @@ public class buildManager : MonoBehaviour
         if (instance = null)
         {
         //some shit
+        //new shirt
             return;
         }
         instance = this;
