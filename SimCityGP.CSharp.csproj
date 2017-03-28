@@ -81,6 +81,7 @@
     <Compile Include="Assets\cameraControl.cs" />
     <Compile Include="Assets\castle.cs" />
     <Compile Include="Assets\gameMoney.cs" />
+    <Compile Include="Assets\transformExtension.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
