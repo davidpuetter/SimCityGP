@@ -80,7 +80,7 @@ public class gameMoney : MonoBehaviour
     //allows this object to be called elsewhere
     void Awake()
     {
-        if (instance = null)
+        if (instance == null)
         {
             return;
         }
@@ -127,9 +127,11 @@ public class gameMoney : MonoBehaviour
                 Population = PopulationMax;
             }
             else
+            {
                 //increase by the current PPS 
                 Population = Population + PPS;
                 populationmoneymod = Population / 10;
+            }
         }
 
         //fills the labels with the values that change

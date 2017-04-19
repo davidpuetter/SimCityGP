@@ -34,6 +34,12 @@ public class FloorNode : MonoBehaviour
     public GameObject shopToBuild;
     public GameObject armoryToBuild;
 
+    // GOs to hold master script
+    public GameObject master;
+    private gameMoney gameManager;
+
+
+
     //when possible to run from start
     void Awake()
     {
@@ -54,6 +60,8 @@ public class FloorNode : MonoBehaviour
 
         //set the start colour as... the start colour
         startColor = rend.material.color;
+
+        gameManager = master.GetComponent<gameMoney>();
     }
     void OnMouseDown()
     {
@@ -65,7 +73,7 @@ public class FloorNode : MonoBehaviour
     void buybuilding()
     {
 
-        gameMoney gameManager = gameMoney.instance;
+        //gameMoney gameManager = gameMoney.instance;
         //if building can be afforded,      If there isnt a building there already,        If selected building = 1(tavern),            Can afford the resource cost
         if (gameManager.Money >= gameManager.tavernCost && building == null && gameManager.SelectedBuilding == 1 && gameManager.Resources >= gameManager.resourceCost)
         {
@@ -79,7 +87,7 @@ public class FloorNode : MonoBehaviour
             gameManager.Resources = gameManager.Resources - gameManager.resourceCost;
 
             //building is assigned to a building which instantiate spawns with the variables and offset position
-            building = (GameObject)Instantiate(tavernToBuild, transform.position + positionOffset, transform.rotation);
+            building = (GameObject)Instantiate(tavernToBuild, transform.position + positionOffset, tavernToBuild.transform.rotation);//, transform.rotation);
             GameObject effectIns = (GameObject)Instantiate(createEffect, transform.position + positionOffset, transform.rotation);
 
             //taverns individual effect/purpose on the game
@@ -98,7 +106,7 @@ public class FloorNode : MonoBehaviour
 
             gameManager.Money -= gameManager.houseCost;
 
-            building = (GameObject)Instantiate(houseToBuild, transform.position + positionOffset, transform.rotation);
+            building = (GameObject)Instantiate(houseToBuild, transform.position + positionOffset, houseToBuild.transform.rotation);
             GameObject effectIns = (GameObject)Instantiate(createEffect, transform.position + positionOffset, transform.rotation);
 
             //houses individual effect/purpose on the game
@@ -117,7 +125,7 @@ public class FloorNode : MonoBehaviour
 
             gameManager.Money -= gameManager.shopCost;
 
-            building = (GameObject)Instantiate(shopToBuild, transform.position + positionOffset, transform.rotation);
+            building = (GameObject)Instantiate(shopToBuild, transform.position + positionOffset, shopToBuild.transform.rotation);
            
             
 
@@ -144,7 +152,7 @@ public class FloorNode : MonoBehaviour
 
             gameManager.Money -= gameManager.armoryCost;
 
-            building = (GameObject)Instantiate(armoryToBuild, transform.position + positionOffset, Quaternion.Euler(0, 90, 0));
+            building = (GameObject)Instantiate(armoryToBuild, transform.position + positionOffset, armoryToBuild.transform.rotation);// Quaternion.Euler(0, 90, 0));
 
             GameObject effectIns = (GameObject)Instantiate(createEffect, transform.position + positionOffset, transform.rotation);
 

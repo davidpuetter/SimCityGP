@@ -7,14 +7,15 @@ public class button : MonoBehaviour {
 
     public float buttonVal;
 
-
+    public GameObject master;
+    private gameMoney gameManager;
 
 
     void Start()
     {
         Button btn = GetComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        
+        gameManager = master.GetComponent<gameMoney>();
 
     }
     public void OnMouseDown()
@@ -25,32 +26,35 @@ public class button : MonoBehaviour {
     public void TaskOnClick ()
     {
 
-        gameMoney.instance.SelectedBuilding = buttonVal;
+        //gameMoney.instance.SelectedBuilding = buttonVal;
+
+        gameManager.SelectedBuilding = buttonVal;
+
 
         //If the button is the tavern
         if (buttonVal == 1)
         {
             //the resource cost is set to the cost of the tavern
-            gameMoney.instance.resourceCost = gameMoney.instance.tavernResourceCost;
+            gameManager.resourceCost = gameManager.tavernResourceCost;
         }
         //house
         else if (buttonVal == 2)
         {
-            gameMoney.instance.resourceCost = gameMoney.instance.houseResourceCost;
+            gameManager.resourceCost = gameManager.houseResourceCost;
 
         }
 
         //shop
         else if (buttonVal == 3)
         {
-            gameMoney.instance.resourceCost = gameMoney.instance.shopResourceCost;
+            gameManager.resourceCost = gameManager.shopResourceCost;
 
         }
 
         //armory
         else if (buttonVal == 4)
         {
-            gameMoney.instance.resourceCost = 0;
+            gameManager.resourceCost = 0;
 
         }
     }

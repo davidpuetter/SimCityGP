@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 11419620}
   m_Layer: 0
   m_Name: house
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   houseToBuild: {fileID: 158518}
   shopToBuild: {fileID: 131748, guid: 3508e1f3ed473dd47a7caba4b0836aad, type: 2}
   armoryToBuild: {fileID: 145206, guid: 5a532219fb2594341bbb1bdce41dd5e8, type: 2}
+  master: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
