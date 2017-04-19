@@ -59,10 +59,11 @@ public class gameMoney : MonoBehaviour
     public float resourceCost;
 
     //upkeep variables taking account the cost of upkeeping buildings
-    public float tavernupkeep;
-    public float houseupkeep;
-    public float shopupkeep;
-    public float armoryupkeep;
+    float tavernupkeep;
+    float houseupkeep;
+    float shopupkeep;
+    float armoryupkeep;
+    public float sumupkeep;
 
     //arrays to keep track of number of instances of each game object for example getHouse = number of houses in the game
     private GameObject[] getHouse;
@@ -101,7 +102,11 @@ public class gameMoney : MonoBehaviour
 
         //calculates the total upkeep of each type of building 
         houseupkeep = getHouse.Length / 10;
+        armoryupkeep = getArmory.Length / 10;
+        tavernupkeep = getTavern.Length / 10;
+        shopupkeep = getShop.Length / 10;
 
+        sumupkeep = (houseupkeep + armoryupkeep + tavernupkeep + shopupkeep);
 
 
         //when the countdown hits 0
@@ -112,7 +117,7 @@ public class gameMoney : MonoBehaviour
 
             //---------MAIN MONEY EQUATION---------
             Money = Money + (shopProfits + populationmoneymod);
-
+            Money = Money - sumupkeep;
 
 
             //if the population is at its max
