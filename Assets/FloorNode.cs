@@ -96,7 +96,7 @@ public class FloorNode : MonoBehaviour
 
             //increases the cost of the building after one is built
             gameManager.tavernCost *= 1.4f;
-
+            gameManager.sumupkeep += 0.3f;
         }
 
         //if building can be afforded,      If there isnt a building there already,        If selected building = 2(house),            Can afford the resource cost
@@ -115,7 +115,7 @@ public class FloorNode : MonoBehaviour
 
             gameManager.houseCost *= 1.4f;
             gameManager.Resources = gameManager.Resources - gameManager.resourceCost;
-
+            gameManager.sumupkeep += 0.1f;
         }
 
         //if building can be afforded,      If there isnt a building there already,        If selected building = 3(shop),            Can afford the resource cost
@@ -140,7 +140,7 @@ public class FloorNode : MonoBehaviour
             gameManager.shopProfits = gameManager.shopProfits + gameManager.shopProfitGrowth;
 
             gameManager.shopCost *= 1.4f;
-
+            gameManager.sumupkeep += 0.1f;
 
         }
 
@@ -161,7 +161,7 @@ public class FloorNode : MonoBehaviour
             gameManager.Resources = gameManager.Resources + gameManager.armoryResourcesGiven;
 
             gameManager.armoryCost *= 1.4f;
-
+            gameManager.sumupkeep += 0.3f;
 
 
 
