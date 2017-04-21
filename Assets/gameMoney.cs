@@ -14,7 +14,7 @@ public class gameMoney : MonoBehaviour
 
     //cash per second and population per second
     //public float CPS = 1f;
-    public float PPS = 1f;
+    public float PPS = 0.3f;
 
     //Current max population,
     public float PopulationMax = 1f;
@@ -58,24 +58,12 @@ public class gameMoney : MonoBehaviour
     public float armoryResourcesGiven = 1f;
     public float resourceCost;
 
-    //upkeep variables taking account the cost of upkeeping buildings
-    float tavernupkeep;
-    float houseupkeep;
-    float shopupkeep;
-    float armoryupkeep;
-    public float sumupkeep;
-
-    //arrays to keep track of number of instances of each game object for example getHouse = number of houses in the game
-    private GameObject[] getHouse;
-    private GameObject[] getTavern;
-    private GameObject[] getShop;
-    private GameObject[] getArmory;
-
     float populationmoneymod;
-
+    public float sumupkeep;
 
     //current gold multiplier from shops
     public float shopProfits = 0f;
+    
 
     //allows this object to be called elsewhere
     void Awake()
@@ -94,21 +82,7 @@ public class gameMoney : MonoBehaviour
         //countsdown the timer in real time
         cashTimer -= Time.deltaTime;
 
-        //finds how many instances of a object with a tag at runtime
-        getHouse = GameObject.FindGameObjectsWithTag("House");
-        getArmory = GameObject.FindGameObjectsWithTag("Armory");
-        getTavern = GameObject.FindGameObjectsWithTag("Tavern");
-        getShop = GameObject.FindGameObjectsWithTag("Shop");
-
-        //calculates the total upkeep of each type of building 
-        houseupkeep = getHouse.Length / 10;
-        armoryupkeep = getArmory.Length / 10;
-        tavernupkeep = getTavern.Length / 10;
-        shopupkeep = getShop.Length / 10;
-
-        sumupkeep = (houseupkeep + armoryupkeep + tavernupkeep + shopupkeep);
-
-
+     
         //when the countdown hits 0
         if (cashTimer <= 0)
         {
@@ -116,8 +90,8 @@ public class gameMoney : MonoBehaviour
             cashTimer = cashCooldown;
 
             //---------MAIN MONEY EQUATION---------
-            Money = Money + (shopProfits + populationmoneymod);
-            Money = Money - sumupkeep;
+            Money = Money + (shopProfits + populationmoneymod) - sumupkeep;
+            
 
 
             //if the population is at its max
@@ -130,7 +104,7 @@ public class gameMoney : MonoBehaviour
             {
                 //increase by the current PPS 
                 Population = Population + PPS;
-                populationmoneymod = Population / 10;
+                populationmoneymod = Population / 50;
             }
         }
 
@@ -139,7 +113,7 @@ public class gameMoney : MonoBehaviour
         populationText.text = "Population: " + Mathf.Round(Population).ToString() + '/' + PopulationMax.ToString();
         powerText.text = "Resources: " + Resources.ToString();
 
-        CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod)), 2).ToString()) + "Gp/s";
+        CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod - sumupkeep)), 2).ToString()) + "Gp/s";
         PPSText.text = '+' + System.Math.Round(PPS, 2).ToString() + "pp/s";
 
         housecostLbl.text = System.Math.Round(houseCost, 0).ToString() + 'G';
