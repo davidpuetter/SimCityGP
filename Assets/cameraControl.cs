@@ -84,7 +84,7 @@ public class cameraControl : MonoBehaviour
             Vector3 deltaMousePos = (Input.mousePosition - lastMousePos);
 
             // update movement, the (-) outside the variables allows for movement direction to be opposite of drag direction
-            moveVector += new Vector3(-deltaMousePos.x, 0, -deltaMousePos.y);
+            moveVector += new Vector3(-deltaMousePos.x / 10, 0, -deltaMousePos.y / 10);
         }
 
         /* so far, so good. this is where things get a little more tricky.
