@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class FloorNode : MonoBehaviour
@@ -97,6 +97,7 @@ public class FloorNode : MonoBehaviour
             //increases the cost of the building after one is built
             gameManager.tavernCost *= 1.4f;
             gameManager.sumupkeep += 0.3f;
+            gameManager.happiness += 5.0f;
         }
 
         //if building can be afforded,      If there isnt a building there already,        If selected building = 2(house),            Can afford the resource cost
@@ -162,7 +163,7 @@ public class FloorNode : MonoBehaviour
 
             gameManager.armoryCost *= 1.4f;
             gameManager.sumupkeep += 0.3f;
-
+            gameManager.happiness -= 3.0f;
 
 
         }
