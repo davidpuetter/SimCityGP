@@ -102,7 +102,31 @@ public class cameraControl : MonoBehaviour
         // set the local x rotation to 0, gotta do this so our camera will move
         // in the right direction with relevance to where it is facing
         transform.SetLocalEulerAngles(0.0f);
+        
+        // check left boundary
+        if (transform.position.x <= -60)
+        {
+            transform.position = new Vector3(-59.9f, transform.position.y, transform.position.z);
+        }
 
+        // check right boundary
+        if (transform.position.x >= 100)
+        {
+            transform.position = new Vector3(99.9f, transform.position.y, transform.position.z);
+        }
+
+        // check top boundary
+        if (transform.position.z >= -220)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -220.1f);
+        }
+
+        // check bottom boundary
+        if (transform.position.z <= -420)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -419.9f);
+        }
+        
         // actually apply the final movement vector to the camera
         transform.Translate(moveVector);
 
