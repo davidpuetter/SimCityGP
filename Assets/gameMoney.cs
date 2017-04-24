@@ -60,7 +60,10 @@ public class gameMoney : MonoBehaviour
 
     float populationmoneymod;
     public float sumupkeep;
-
+    float inithappiness;
+    public float happiness;
+    public float maxhappiness;
+    public float happinessmodifier;
     //current gold multiplier from shops
     public float shopProfits = 0f;
     
@@ -68,6 +71,10 @@ public class gameMoney : MonoBehaviour
     //allows this object to be called elsewhere
     void Awake()
     {
+        inithappiness = 50;
+        maxhappiness = 100;
+        happinessmodifier = 1.0f;
+        happiness = inithappiness;
         if (instance == null)
         {
             return;
@@ -90,9 +97,38 @@ public class gameMoney : MonoBehaviour
             cashTimer = cashCooldown;
 
             //---------MAIN MONEY EQUATION---------
-            Money = Money + (shopProfits + populationmoneymod) - sumupkeep;
-            
+            Money = Money + (shopProfits + populationmoneymod) * happinessmodifier - sumupkeep;
+            if (happiness >= 50)
+            {
+                happinessmodifier = 1.0f;
+            }
 
+            if (happiness < 50)
+            {
+                happinessmodifier = 0.8f;
+            }
+
+            if (happiness <= 30)
+            {
+                happinessmodifier = 0.6f;
+                PPS = -0.5f;
+            }
+
+
+            if (happiness >= 80)
+            {
+                happinessmodifier = 1.1f;
+            }
+
+            if (happiness == 100)
+            {
+                happinessmodifier = 1.5f;
+            }
+
+            if (happiness >= maxhappiness)
+            {
+                happiness = maxhappiness;
+            }
 
             //if the population is at its max
             if (Population + PPS >= PopulationMax)
@@ -100,6 +136,12 @@ public class gameMoney : MonoBehaviour
                 //dont allow any increase
                 Population = PopulationMax;
             }
+            if (Population + PPS == 0)
+            {
+                Population = 0;
+            }
+
+            
             else
             {
                 //increase by the current PPS 
@@ -113,7 +155,7 @@ public class gameMoney : MonoBehaviour
         populationText.text = "Population: " + Mathf.Round(Population).ToString() + '/' + PopulationMax.ToString();
         powerText.text = "Resources: " + Resources.ToString();
 
-        CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod - sumupkeep)), 2).ToString()) + "Gp/s";
+        CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod*happinessmodifier - sumupkeep)), 2).ToString()) + "Gp/s";
         PPSText.text = '+' + System.Math.Round(PPS, 2).ToString() + "pp/s";
 
         housecostLbl.text = System.Math.Round(houseCost, 0).ToString() + 'G';
