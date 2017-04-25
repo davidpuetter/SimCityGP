@@ -75,7 +75,7 @@ public class FloorNode : MonoBehaviour
 
         //gameMoney gameManager = gameMoney.instance;
         //if building can be afforded,      If there isnt a building there already,        If selected building = 1(tavern),            Can afford the resource cost
-        if (gameManager.Money >= gameManager.tavernCost && building == null && gameManager.SelectedBuilding == 1 && gameManager.Resources >= gameManager.resourceCost)
+        if (gameManager.Money >= gameManager.tavernCost && building == null && gameManager.SelectedBuilding == 1 && gameManager.Resource >= gameManager.resourceCost)
         {
             //deselect the floor node (avoids a colour bug)
             rend.material.color = startColor;
@@ -84,7 +84,7 @@ public class FloorNode : MonoBehaviour
             gameManager.Money -= gameManager.tavernCost;
 
             //remove the resource cost from resources
-            gameManager.Resources = gameManager.Resources - gameManager.resourceCost;
+            gameManager.Resource = gameManager.Resource - gameManager.resourceCost;
 
             //building is assigned to a building which instantiate spawns with the variables and offset position
             building = (GameObject)Instantiate(tavernToBuild, transform.position + positionOffset, tavernToBuild.transform.rotation);//, transform.rotation);
@@ -101,7 +101,7 @@ public class FloorNode : MonoBehaviour
         }
 
         //if building can be afforded,      If there isnt a building there already,        If selected building = 2(house),            Can afford the resource cost
-        else if (gameManager.Money >= gameManager.houseCost && building == null && gameManager.SelectedBuilding == 2 && gameManager.Resources >= gameManager.resourceCost)
+        else if (gameManager.Money >= gameManager.houseCost && building == null && gameManager.SelectedBuilding == 2 && gameManager.Resource >= gameManager.resourceCost)
             {
             rend.material.color = startColor;
 
@@ -115,12 +115,12 @@ public class FloorNode : MonoBehaviour
             gameManager.PopulationMax += gameManager.houseMaxPopGrowth;
 
             gameManager.houseCost *= 1.4f;
-            gameManager.Resources = gameManager.Resources - gameManager.resourceCost;
+            gameManager.Resource = gameManager.Resource - gameManager.resourceCost;
             gameManager.sumupkeep += 0.1f;
         }
 
         //if building can be afforded,      If there isnt a building there already,        If selected building = 3(shop),            Can afford the resource cost
-        else if (gameManager.Money >= gameManager.shopCost && building == null && gameManager.SelectedBuilding == 3 && gameManager.Resources >= gameManager.resourceCost)
+        else if (gameManager.Money >= gameManager.shopCost && building == null && gameManager.SelectedBuilding == 3 && gameManager.Resource >= gameManager.resourceCost)
         {
             rend.material.color = startColor;
 
@@ -130,7 +130,7 @@ public class FloorNode : MonoBehaviour
            
             
 
-            gameManager.Resources = gameManager.Resources - gameManager.resourceCost;
+            gameManager.Resource = gameManager.Resource - gameManager.resourceCost;
 
 
 
@@ -147,7 +147,7 @@ public class FloorNode : MonoBehaviour
 
 
         //if building can be afforded,      If there isnt a building there already,        If selected building = 4(armory),            Can afford the resource cost (should be 0 so game is never impossible)
-        else if (gameManager.Money >= gameManager.armoryCost && building == null && gameManager.SelectedBuilding == 4 && gameManager.Resources >= gameManager.resourceCost)
+        else if (gameManager.Money >= gameManager.armoryCost && building == null && gameManager.SelectedBuilding == 4 && gameManager.Resource >= gameManager.resourceCost)
         {
             rend.material.color = startColor;
 
@@ -159,8 +159,8 @@ public class FloorNode : MonoBehaviour
 
             //armorys individual effect/purpose on the game
             //increases the energy resource by x amount.
-            gameManager.Resources = gameManager.Resources + gameManager.armoryResourcesGiven;
 
+            gameManager.RRS += 0.1f;
             gameManager.armoryCost *= 1.4f;
             gameManager.sumupkeep += 0.3f;
             gameManager.happiness -= 3.0f;

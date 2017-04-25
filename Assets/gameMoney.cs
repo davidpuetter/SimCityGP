@@ -9,12 +9,13 @@ public class gameMoney : MonoBehaviour
 
     //the variables that hold the current amount of a "currency"
     public float Money = 1f;
-    public float Resources = 1f;
+    public float Resource = 1f;
     public float Population = 1f;
 
     //cash per second and population per second
     //public float CPS = 1f;
     public float PPS = 0.3f;
+    public float RRS = 0.1f;
 
     //Current max population,
     public float PopulationMax = 1f;
@@ -136,7 +137,7 @@ public class gameMoney : MonoBehaviour
                 //dont allow any increase
                 Population = PopulationMax;
             }
-            if (Population + PPS == 0)
+            else if (Population + PPS == 0)
             {
                 Population = 0;
             }
@@ -145,15 +146,17 @@ public class gameMoney : MonoBehaviour
             else
             {
                 //increase by the current PPS 
+                
                 Population = Population + PPS;
                 populationmoneymod = Population / 50;
             }
+            Resource = Resource + RRS;
         }
 
         //fills the labels with the values that change
         moneyText.text = "Gold: " + System.Math.Round(Money, 0).ToString() + 'G';
         populationText.text = "Population: " + Mathf.Round(Population).ToString() + '/' + PopulationMax.ToString();
-        powerText.text = "Resources: " + Resources.ToString();
+        powerText.text = "Resources: " + Mathf.Round(Resource).ToString();
 
         CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod*happinessmodifier - sumupkeep)), 2).ToString()) + "Gp/s";
         PPSText.text = '+' + System.Math.Round(PPS, 2).ToString() + "pp/s";
