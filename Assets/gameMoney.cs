@@ -156,7 +156,7 @@ public class gameMoney : MonoBehaviour
 
         //fills the labels with the values that change
         moneyText.text = "Gold: " + System.Math.Round(Money, 0).ToString() + 'G';
-        populationText.text = "Population: " + Mathf.Round(Population).ToString() + '/' + PopulationMax.ToString();
+        populationText.text = "Pop: " + Mathf.Round(Population).ToString() + '/' + PopulationMax.ToString();
         powerText.text = "Resources: " + Mathf.Round(Resource).ToString();
         happinessText.text = "Happiness: " + Mathf.Round(happiness).ToString();
         CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod*happinessmodifier - sumupkeep)), 2).ToString()) + "Gp/s";
