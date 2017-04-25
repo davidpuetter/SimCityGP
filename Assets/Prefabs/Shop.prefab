@@ -91,7 +91,6 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3365606
 MeshFilter:
@@ -116,7 +115,7 @@ MonoBehaviour:
   createEffect: {fileID: 130878, guid: 500bb3a68b454ca4cb63df032f94e47a, type: 2}
   positionOffset: {x: 0, y: 2, z: 0}
   buildingSelected: 0
-  tavernToBuild: {fileID: 164454, guid: 9cf6e493c0eeb8844a269985c4e51ced, type: 2}
+  tavernToBuild: {fileID: 164454, guid: 705a498a12ffddf46b72bd35bfebde9e, type: 2}
   houseToBuild: {fileID: 158518, guid: e0d616391d73b4249b160a403b9f8aa1, type: 2}
   shopToBuild: {fileID: 131748}
   armoryToBuild: {fileID: 145206, guid: 5a532219fb2594341bbb1bdce41dd5e8, type: 2}

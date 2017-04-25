@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class ManipTime : MonoBehaviour {
 
+
 	//Make time a range, may not be needed.
 	//[Range(0,5)]
 	//Make fast time 6 and keep 1 as normal time. Can change fast time if needed.
@@ -27,4 +28,7 @@ public class ManipTime : MonoBehaviour {
 			IsOn = true;
 		}
 	}
+
+  
+
 }

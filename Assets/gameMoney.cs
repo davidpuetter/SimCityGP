@@ -50,6 +50,7 @@ public class gameMoney : MonoBehaviour
     public Text taverncostLbl;
     public Text armorycostLbl;
     public Text powerText;
+    public Text happinessText;
 
 
     //variables that affect various effects of buildings
@@ -157,7 +158,7 @@ public class gameMoney : MonoBehaviour
         moneyText.text = "Gold: " + System.Math.Round(Money, 0).ToString() + 'G';
         populationText.text = "Population: " + Mathf.Round(Population).ToString() + '/' + PopulationMax.ToString();
         powerText.text = "Resources: " + Mathf.Round(Resource).ToString();
-
+        happinessText.text = "Happiness: " + Mathf.Round(happiness).ToString();
         CPMText.text = '+' + System.String.Format("{0:n}", System.Math.Round(((shopProfits + populationmoneymod*happinessmodifier - sumupkeep)), 2).ToString()) + "Gp/s";
         PPSText.text = '+' + System.Math.Round(PPS, 2).ToString() + "pp/s";
 
