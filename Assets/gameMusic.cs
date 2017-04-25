@@ -33,7 +33,7 @@ public class gameMusic : MonoBehaviour {
 
             firstPlaying = false;
 
-            Invoke("playMusic", 141f);
+            // Invoke("playMusic", 141f);
 
         }
 
@@ -43,10 +43,19 @@ public class gameMusic : MonoBehaviour {
 
             firstPlaying = true;
 
-            Invoke("playMusic", 89f);
+            // Invoke("playMusic", 89f);
 
         }
+
     }
+    void Update()
+    {
+        if (!music1.isPlaying && !music2.isPlaying)
+        {
+            playMusic();
+        }
+    }
+    
 
 
 }
