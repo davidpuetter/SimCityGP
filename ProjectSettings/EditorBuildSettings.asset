@@ -7,3 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/CityScape.unity
+    guid: 714a405ea50317247a67314014bf1da1
+  - enabled: 1
+    path: Assets/Menu.unity
+    guid: 2183870d2be8ae04581729ee2f9e68aa
