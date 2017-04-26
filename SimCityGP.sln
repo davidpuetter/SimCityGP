@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimCityGP.CSharp", "SimCityGP.CSharp.csproj", "{93E4EF6A-72D4-C22F-AEB5-28CC096AD7A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimCityGP", "SimCityGP.csproj", "{87CF98ED-1205-BD14-FE96-4B08A3636CF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{93E4EF6A-72D4-C22F-AEB5-28CC096AD7A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93E4EF6A-72D4-C22F-AEB5-28CC096AD7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93E4EF6A-72D4-C22F-AEB5-28CC096AD7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93E4EF6A-72D4-C22F-AEB5-28CC096AD7A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CF98ED-1205-BD14-FE96-4B08A3636CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CF98ED-1205-BD14-FE96-4B08A3636CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CF98ED-1205-BD14-FE96-4B08A3636CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CF98ED-1205-BD14-FE96-4B08A3636CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
